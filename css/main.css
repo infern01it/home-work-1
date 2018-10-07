@@ -99,15 +99,9 @@ h2, .h2 {
 
 .page__body {
 	margin: 0 auto;
-	width: 1600px;
+	width: 1366px;
 	min-height: -webkit-calc(100vh - 156px);
 	min-height: calc(100vh - 156px);
-}
-
-@media (max-width: 1639.98px) {
-	.page__body {
-		width: 1366px;
-	}
 }
 
 @media (max-width: 1395.98px) {

@@ -26,16 +26,14 @@ $breakpoints: (
 	'xs': 0,
 	'sm': 768px,
 	'md': 1024px,
-	'lg': 1396px,
-	'xl': 1640px
+	'lg': 1396px
 ) !default;
 
 $max-widths: (
 	'xs': 100%,
 	'sm': 720px,
 	'md': 960px,
-	'lg': 1366px,
-	'xl': 1600px
+	'lg': 1366px
 ) !default;
 
 // Customization Bootstrap vars from "bootstrap/_variables.scss"
@@ -46,13 +44,11 @@ $grid-breakpoints: (
 	'xs': map-get($breakpoints, 'xs'),
 	'sm': map-get($breakpoints, 'sm'),
 	'md': map-get($breakpoints, 'md'),
-	'lg': map-get($breakpoints, 'lg'),
-	'xl': map-get($breakpoints, 'xl')
+	'lg': map-get($breakpoints, 'lg')
 );
 
 $container-max-widths: (
 	'sm': map-get($max-widths, 'sm'),
 	'md': map-get($max-widths, 'md'),
-	'lg': map-get($max-widths, 'lg'),
-	'xl': map-get($max-widths, 'xl')
+	'lg': map-get($max-widths, 'lg')
 );
