@@ -6,8 +6,12 @@
 	&__footer
 	&__body
         margin: 0 auto
-        width: map-get($max-widths, 'lg')
+        width: map-get($max-widths, 'xl')
         min-height: calc(100vh - #{$headerHeightLg + $footerHeight})
+
++media(lg)
+	.page__body
+		width: map-get($max-widths, 'lg')
 
 +media(md)
 	.page__body

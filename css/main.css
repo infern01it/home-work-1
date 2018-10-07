@@ -85,6 +85,12 @@ h2, .h2 {
 	background-color: #ffcd00;
 }
 
+@media (max-width: 767.98px) {
+	.btn {
+		height: 44px;
+	}
+}
+
 /* Основной блок с контентом на странице */
 .page {
 	position: relative;
@@ -93,9 +99,15 @@ h2, .h2 {
 
 .page__body {
 	margin: 0 auto;
-	width: 1366px;
+	width: 1600px;
 	min-height: -webkit-calc(100vh - 156px);
 	min-height: calc(100vh - 156px);
+}
+
+@media (max-width: 1639.98px) {
+	.page__body {
+		width: 1366px;
+	}
 }
 
 @media (max-width: 1395.98px) {
@@ -426,16 +438,32 @@ h2, .h2 {
 
 /* Карточка события */
 .event {
+	position: relative;
 	background-color: #fafafa;
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
 	overflow: hidden;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	transition: all .2s ease-out;
 }
 
 .event__head {
 	-webkit-border-radius: 20px 20px 0 0;
 	border-radius: 20px 20px 0 0;
 	background-color: #fafafa;
+	-webkit-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	transition: all .2s ease-out;
 }
 
 .event__body {
@@ -443,15 +471,57 @@ h2, .h2 {
 	-webkit-border-radius: 20px;
 	border-radius: 20px;
 	background-color: #fafafa;
+	-webkit-flex-basis: 100%;
+	-ms-flex-preferred-size: 100%;
+	flex-basis: 100%;
+	-webkit-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	transition: all .2s ease-out;
 }
 
-.event__desc {
-	margin-bottom: 30px;
+.event__btn-top, .event__btn-bot {
+	position: absolute;
+	right: 20px;
+	padding: 0;
+	background-color: transparent;
+	border: none;
+	outline: none !important;
+	opacity: 0;
+	-webkit-transition: all .2s ease-out;
+	-o-transition: all .2s ease-out;
+	transition: all .2s ease-out;
+	cursor: pointer;
+}
+
+.event__btn-top {
+	top: 20px;
+}
+
+.event__btn-bot {
+	bottom: 20px;
 }
 
 .event_danger .event__head {
 	background-color: #DB5341;
 	color: #ffffff;
+}
+
+.event:hover {
+	background-color: #F3F3F3;
+	-webkit-box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
+	box-shadow: 0 2px 6px 0 rgba(197, 186, 186, 0.5);
+}
+
+.event:hover .event__body {
+	background-color: #F3F3F3;
+}
+
+.event:hover .event__btn-top, .event:hover .event__btn-bot {
+	opacity: 1;
+}
+
+.event:not(.event_danger):hover .event__head {
+	background-color: #F3F3F3;
 }
 
 @media (max-width: 767.98px) {
@@ -612,10 +682,31 @@ h2, .h2 {
 /* Блок информации/управления устройством */
 .card-app {
 	padding: 20px;
+	display: -webkit-box;
+	display: -webkit-flex;
+	display: -ms-flexbox;
+	display: flex;
+	-webkit-box-orient: vertical;
+	-webkit-box-direction: normal;
+	-webkit-flex-direction: column;
+	-ms-flex-direction: column;
+	flex-direction: column;
+	-webkit-box-pack: end;
+	-webkit-justify-content: flex-end;
+	-ms-flex-pack: end;
+	justify-content: flex-end;
+}
+
+.card-app__desc {
+	margin-bottom: 30px;
+}
+
+.card-app__desc_mb_0 {
+	margin-bottom: 0;
 }
 
 .card-app__more {
-	margin-top: 30px;
+	margin-top: auto;
 }
 
 .card-app_size_l .card-app__desc {
@@ -633,7 +724,7 @@ h2, .h2 {
 		padding: 16px;
 	}
 
-	.card-app__more {
+	.card-app__desc {
 		margin-top: 20px;
 	}
 
@@ -649,6 +740,8 @@ h2, .h2 {
 	display: block;
 	width: 100%;
 	height: auto;
+	-webkit-border-radius: 20px;
+	border-radius: 20px;
 }
 
 /* Блок с температурой */
@@ -956,4 +1049,17 @@ h2, .h2 {
 
 .card-app-fridge__btn:not(:last-child) {
 	margin-right: 18px;
+}
+
+@media (max-width: 767.98px) {
+	.card-app-fridge {
+		-webkit-box-pack: justify;
+		-webkit-justify-content: space-between;
+		-ms-flex-pack: justify;
+		justify-content: space-between;
+	}
+
+	.card-app-fridge__btn:not(:last-child) {
+		margin-right: 0;
+	}
 }

@@ -7,23 +7,56 @@
 /* Карточка события */
 .event
     $p: &
+    position: relative
     background-color: #fafafa
     border-radius: 20px
     overflow: hidden
+    display: flex
+    flex-direction: column
+    transition: all .2s ease-out
     &__head
         border-radius: 20px 20px 0 0
         background-color: #fafafa
+        transition: all .2s ease-out
     &__body
         margin-top: -20px
         border-radius: 20px
         background-color: #fafafa
-    &__desc
-        margin-bottom: 30px
+        flex-basis: 100%
+        transition: all .2s ease-out
+    &__btn-top,
+    &__btn-bot
+        position: absolute
+        right: 20px
+        padding: 0
+        background-color: transparent
+        border: none
+        outline: none !important
+        opacity: 0
+        transition: all .2s ease-out
+        cursor: pointer
+    &__btn-top
+        top: 20px
+    &__btn-bot
+        bottom: 20px
     &_danger
         #{$p}
             &__head
                 background-color: #DB5341
                 color: #ffffff
+    &:hover
+        background-color: #F3F3F3
+        box-shadow: 0 2px 6px 0 rgba(197,186,186,0.50)
+        #{$p}
+            &__body
+                background-color: #F3F3F3
+            &__btn-top,
+            &__btn-bot
+                opacity: 1
+    &:not(#{$p}_danger):hover
+        #{$p}
+            &__head
+                background-color: #F3F3F3
 
 +media(xs)
     .event
@@ -109,9 +142,15 @@
 .card-app
     $p: &
     padding: 20px
+    display: flex
+    flex-direction: column
+    justify-content: flex-end
     &__desc
+        margin-bottom: 30px
+        &_mb_0
+            margin-bottom: 0
     &__more
-        margin-top: 30px
+        margin-top: auto
     &_size
         &_l
             #{$p}__desc
@@ -127,7 +166,7 @@
     .card-app
         $p: &
         padding: 16px
-        &__more
+        &__desc
             margin-top: 20px // Тут в разных местах от 16 до 25... взял что-то среднее
         &_size
             &_l,
@@ -144,6 +183,7 @@
         display: block
         width: 100%
         height: auto
+        border-radius: 20px
 
 /* Блок с температурой */
 .card-app-thermal
@@ -338,3 +378,9 @@
     flex-wrap: wrap
     &__btn:not(:last-child)
         margin-right: 18px
+
++media(xs)
+    .card-app-fridge
+        justify-content: space-between
+        &__btn:not(:last-child)
+            margin-right: 0
